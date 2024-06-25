@@ -3,31 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web Page with Box</title>
+    <title>Simple Website</title>
     <style>
-        .box {
-            width: 250px;
-            height: 250px;
-            background-color: #ff66ff;
-            margin: 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
         }
-                .box-one {
-            width: 250px;
-            height: 250px;
-            background-color: #ff66ff;
-            margin: 20px auto;
+        .navbar {
             display: flex;
-            justify-content: center;
-            align-items: center;
-                    border-radius: 50%;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 14px 20px;
+            color: white;
+        }
+        .menu-btn {
+            cursor: pointer;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            color: white;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
         }
     </style>
 </head>
 <body>
-    <div class="box"></div>
-    <div class="box-one"></div>
+
+<div class="navbar">
+    <span class="menu-btn" onclick="openSidebar()">☰ Menu</span>
+</div>
+
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact Us</a>
+</div>
+
+<script>
+    function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+    }
+    function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+</script>
+
 </body>
 </html>
